@@ -9,7 +9,7 @@ function ResultTable(props) {
         <div>
             <ul className="employee-list">
                 {props.data.map((employee) => (
-                    <li className="employee-card">
+                    <li key={employee.id} className="employee-card">
                     <Row>
                         <Col size="2">
                             <img className="employee-img" src={employee.img} alt=""></img>

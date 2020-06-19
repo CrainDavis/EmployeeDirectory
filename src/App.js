@@ -12,7 +12,7 @@ import MainResultSection from "./components/MainResultSection";
 
 class App extends Component {
   state = {
-    employees: [],
+    employees: []
   };
 
   // get employee data upon opening browser
@@ -35,16 +35,18 @@ class App extends Component {
           location: `${employee.location.city}, ${employee.location.state}`,
         };
       });
+
       this.setState({ employees });
     });
   }
+
   // ================================================
 
   render() {
     return (
       <div>
         <Header />
-        <MainResultSection data={this.state.employees}/>
+        <MainResultSection data={this.state.employees} />
         <SectionSpacing />
         <Footer />
       </div>
