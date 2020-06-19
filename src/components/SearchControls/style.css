@@ -1,0 +1,14 @@
+.control-panel {
+    background-color: darkred;
+    padding: 20px 10px 10px 20px;
+    border-radius: 20px;
+    margin-top: 25px;
+}
+
+.btn-group {
+    margin: 0px 10px 20px 10px;
+}
+
+.form-control {
+    margin: 0px 10px;
+}
