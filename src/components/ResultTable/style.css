@@ -32,6 +32,10 @@
     padding-top: 30px;
 }
 
+.employee-email, .employee-phoneNumber, .employee-location {
+    font-size: 15px;
+}
+
 .name-tag {
     background-color: darkred;
     color: white;
@@ -44,5 +48,5 @@
     color: white;
     padding: 8px;
     border-radius: 20px;
-    font-size: 10px;
+    font-size: 20px;
 }

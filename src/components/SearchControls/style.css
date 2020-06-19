@@ -5,10 +5,20 @@
     margin-top: 25px;
 }
 
+.control-labels {
+    color: lightgray;
+}
+
 .btn-group {
     margin: 0px 10px 20px 10px;
 }
 
 .form-control {
     margin: 0px 10px;
+    border: 2px solid navy;
+    background-color: lightgrey;
+}
+
+input.form-control::placeholder {
+    color: navy
 }
