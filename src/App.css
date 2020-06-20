@@ -124,6 +124,12 @@ body {
   font-size: 20px;
 }
 
+.no-results {
+  color: #220f1a;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 /* ========================================= */
 
 /* SearchControls */

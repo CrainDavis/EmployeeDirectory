@@ -49,7 +49,7 @@ function MainResultSection() {
           return a.location.city.localeCompare(b.location.city);
         } else if (label === "username") {
           return a.login.username.localeCompare(b.login.username);
-        };
+        }
       } else {
         if (label === "first name") {
           return b.name.first.localeCompare(a.name.first);
@@ -65,7 +65,9 @@ function MainResultSection() {
       }
     };
 
-    const sortedEmployees = employeeState.filteredEmployees.sort(compareFunction);
+    const sortedEmployees = employeeState.filteredEmployees.sort(
+      compareFunction
+    );
 
     const updatedLabels = employeeState.buttonLabels.map((element) => {
       element.order = element.name === label ? currentOrder : element.order;
@@ -82,7 +84,8 @@ function MainResultSection() {
   const handleNameSearchChange = (event) => {
     const filter = event.target.value;
     const filteredList = employeeState.employees.filter((item) => {
-      let values = item.name.first.toLowerCase() + " " + item.name.last.toLowerCase();
+      let values =
+        item.name.first.toLowerCase() + " " + item.name.last.toLowerCase();
       if (values.indexOf(filter.toLowerCase()) !== -1) {
         return item;
       }
@@ -91,10 +94,13 @@ function MainResultSection() {
     setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
   };
 
-  const handleLocationSearchChange = (event) =>  {
+  const handleLocationSearchChange = (event) => {
     const filter = event.target.value;
     const filteredList = employeeState.employees.filter((item) => {
-      let values = item.location.city.toLowerCase() + ", " + item.location.state.toLowerCase();
+      let values =
+        item.location.city.toLowerCase() +
+        ", " +
+        item.location.state.toLowerCase();
       if (values.indexOf(filter.toLowerCase()) !== -1) {
         return item;
       }
@@ -103,7 +109,7 @@ function MainResultSection() {
     setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
   };
 
-  const handleUsernameSearchChange = (event) =>  {
+  const handleUsernameSearchChange = (event) => {
     const filter = event.target.value;
     const filteredList = employeeState.employees.filter((item) => {
       let values = item.login.username.toLowerCase();
@@ -127,13 +133,27 @@ function MainResultSection() {
 
   // ==========================================
   return (
-    <EmployeeContext.Provider value={{ employeeState, handleNameSearchChange, handleLocationSearchChange, handleUsernameSearchChange, handleSort }}>
+    <EmployeeContext.Provider
+      value={{
+        employeeState,
+        handleNameSearchChange,
+        handleLocationSearchChange,
+        handleUsernameSearchChange,
+        handleSort,
+      }}
+    >
       <div className="main-container">
         <SearchControls />
       </div>
       <SectionBreak />
       <div className="main-container">
-        {employeeState.filteredEmployees.length > 0 ? (<ResultTable />) : (<div><p className="main-no-results">...</p></div>)}
+        {employeeState.employees.length > 0 ? (
+          <ResultTable />
+        ) : (
+          <div>
+            <p className="main-no-results">...loading employee data</p>
+          </div>
+        )}
       </div>
     </EmployeeContext.Provider>
   );

@@ -59,7 +59,7 @@ function ResultTable() {
                     }
                     )
                 ) : (
-                    <div></div>
+                    <div><p className="no-results">no employees found based on your filter(s)...</p></div>
                 )
             }
             </ul>
