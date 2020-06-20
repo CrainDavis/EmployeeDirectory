@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./style.css";
+import "../../App.css";
 
 import Row from "../Row";
 import Col from "../Col";
@@ -14,7 +14,7 @@ const SearchControls = () => {
             <Row className="no-gutters">
                 <Col size="12">
                     <div className="control-panel d-flex justify-content-center">
-                        <div className="button-section">
+                        <div className="control-panel-subsection">
                             <h4 className="control-labels">sort employees by:</h4>
                             <div className="btn-group sort-btns" role="group" aria-label="Basic example">
                                 {context.employeeState.buttonLabels.map(({name}) => {
@@ -24,11 +24,13 @@ const SearchControls = () => {
                                 })}
                             </div>
                         </div>
-                        <div className="button-section">
+                        <div className="control-panel-subsection">
                             <h4 className="control-labels">filter employees by:</h4>
                             <div className="input-group input-group-lg">
                                 <input type="text" className="form-control" placeholder="full name" onChange={event => context.handleNameSearchChange(event)}></input>
-                                <input type="text" className="form-control" placeholder="location (state)" onChange={event => context.handleLocationSearchChange(event)}></input>
+                                <p className="filter-or">or</p>
+                                <input type="text" className="form-control" placeholder="location" onChange={event => context.handleLocationSearchChange(event)}></input>
+                                <p className="filter-or">or</p>
                                 <input type="text" className="form-control" placeholder="username" onChange={event => context.handleUsernameSearchChange(event)}></input>
                             </div>
                         </div>

@@ -1,5 +1,198 @@
+/* ALL STYLING IS LOCATED IN THIS STYLESHEET */
+/* IN ORDER TO MAKE OVERALL STYLING SIMPLER */
+
+/* ========================================= */
+
+/* App.js */
 body {
-    background-color: #abb4c9;
-    color: black;
-    text-align: center;
+  background-color: #dfcbdf;
+  color: #220f1a;
+  text-align: center;
+}
+
+/* ========================================= */
+
+/* Footer.js */
+.page-footer {
+  background-color: #220f1a;
+  height: 70px;
+  text-align: center;
+  padding: 22px;
+}
+
+.footer-copyright {
+  color: #f49dc4;
+}
+
+.link-name {
+  color: #ea0069;
+  font-weight: bold;
+}
+
+.link-name:hover {
+  color: #f8b2d2;
+  text-decoration: none;
+}
+
+/* ========================================= */
+
+/* Header.js */
+.jumbotron {
+  text-align: center;
+  background-color: #220f1a;
+  color: #f49dc4;
+}
+
+.jumbotron-text {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.fa-users {
+  color: #ea0069;
+}
+
+/* ========================================= */
+
+/* MainResultSection */
+.main-container {
+  margin: 0 10px;
+}
+
+.main-no-results {
+  font-weight: bold;
+  font-size: 40px;
+  color: #220f1a;
+}
+
+/* ========================================= */
+
+/* ResultTable */
+.employee-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.employee-card {
+  background-color: #f8f4f8;
+  color: #220f1a;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border: 5px solid #ea0069;
+}
+
+.employee-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  margin-top: 5px;
+  border: 5px solid #750034;
+}
+
+.employee-fullName {
+  font-weight: bold;
+  font-size: 30px;
+  padding-top: 20px;
+}
+
+.employee-username,
+.employee-dob {
+  font-size: 20px;
+  padding-top: 30px;
+}
+
+.employee-email,
+.employee-phoneNumber,
+.employee-location {
+  font-size: 15px;
+}
+
+.name-tag {
+  background-color: #750034;
+  color: #f8f4f8;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.data-label {
+  background-color: #220f1a;
+  color: #ea0069;
+  padding: 8px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+/* ========================================= */
+
+/* SearchControls */
+.control-panel {
+  background-color: #750034;
+  padding: 20px 10px 10px 20px;
+  border-radius: 20px;
+  margin-top: 25px;
+}
+
+.control-panel-subsection {
+    background-color: #9e4c70;
+    border-radius: 20px;
+    margin: 0 10px 12px 10px;
+    padding: 10px 10px 5px 10px;
+}
+
+.control-labels {
+  color: #f8f4f8;
+}
+
+.btn-group {
+  margin: 0px 10px 20px 10px;
+}
+
+.form-control {
+  margin: 0px 10px;
+  border: 2px solid #220f1a;
+  background-color: #f8f4f8;
+}
+
+.form-control:focus-within {
+  border: 2px solid #ea0069;
+}
+
+.form-control:focus {
+  color: #ea0069;
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+input.form-control::placeholder {
+  color: #220f1a;
+}
+
+.filter-or {
+    margin-top: 10px;
+    background-color: #220f1a;
+    color: #f8f4f8;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+/* ========================================= */
+
+/* SectionBreak */
+.section-break {
+  margin: 50px 0;
+  border: 10px solid #220f1a;
+}
+
+/* ========================================= */
+
+/* SectionSpacing */
+.section-spacing {
+  margin: 50px 0;
+  border: 1px solid #dfcbdf;
 }

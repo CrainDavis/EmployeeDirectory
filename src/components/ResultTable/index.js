@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./style.css";
+import "../../App.css";
 
 import EmployeeContext from "../../utils/EmployeeContext";
 
@@ -17,7 +17,16 @@ function ResultTable() {
         const day = dayArray[0];
         const formattedDate = [month, day, year].join("-");
         return formattedDate;
-    }
+    };
+
+    function formatPhoneNumber(phoneNumber) {
+        const phoneArray = phoneNumber.split("-");
+        const areaCode = phoneArray[0];
+        const threeDigits = phoneArray[1];
+        const fourDigits = phoneArray[2];
+        const formattedPhone = areaCode + " " + threeDigits + "-" + fourDigits;
+        return formattedPhone;
+    };
 
     return (
         <div>
@@ -35,11 +44,11 @@ function ResultTable() {
                                         <Row>
                                             <Col size="5"><p className="employee-fullName"><span className="name-tag">{name.first + " " + name.last}</span></p></Col>
                                             <Col size="3"><p className="employee-username"><i className="data-label fas fa-user"></i> {login.username}</p></Col>
-                                            <Col size="4"><p className="employee-dob"><i className="data-label fas fa-birthday-cake"></i> {formatDate(dob.date)} ({dob.age}yo)</p></Col>
+                                            <Col size="4"><p className="employee-dob"><i className="data-label fas fa-birthday-cake"></i> {formatDate(dob.date)} (age {dob.age})</p></Col>
                                         </Row>
                                         <hr></hr>
                                         <Row>
-                                            <Col size="5"><p className="employee-phoneNumber"><span><i className="data-label fas fa-phone"></i></span> {phone} <span><i className="data-label fas fa-mobile-alt"></i></span> {cell}</p></Col>
+                                            <Col size="5"><p className="employee-phoneNumber"><i className="data-label fas fa-phone"></i>{" "}{formatPhoneNumber(phone)}{" "}<i className="data-label fas fa-mobile-alt"></i>{" "}{formatPhoneNumber(cell)}</p></Col>
                                             <Col size="3"><p className="employee-email"><i className="data-label fas fa-envelope"></i> {email}</p></Col>
                                             <Col size="4"><p className="employee-location"><i className="data-label fas fa-globe"></i> {location.city}, {location.state}</p></Col>
                                         </Row>
@@ -50,7 +59,7 @@ function ResultTable() {
                     }
                     )
                 ) : (
-                    <></>
+                    <div></div>
                 )
             }
             </ul>

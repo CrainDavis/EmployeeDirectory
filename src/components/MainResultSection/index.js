@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import "../../App.css";
 
 import API from "../../utils/API";
 
@@ -133,7 +133,7 @@ function MainResultSection() {
       </div>
       <SectionBreak />
       <div className="main-container">
-        {employeeState.filteredEmployees.length > 0 ? (<ResultTable />) : (<div></div>)}
+        {employeeState.filteredEmployees.length > 0 ? (<ResultTable />) : (<div><p className="main-no-results">...</p></div>)}
       </div>
     </EmployeeContext.Provider>
   );
