@@ -141,10 +141,10 @@ body {
 }
 
 .control-panel-subsection {
-    background-color: #9e4c70;
-    border-radius: 20px;
-    margin: 0 10px 12px 10px;
-    padding: 10px 10px 5px 10px;
+  background-color: #9e4c70;
+  border-radius: 20px;
+  margin: 0 10px 12px 10px;
+  padding: 10px 10px 5px 10px;
 }
 
 .control-labels {
@@ -179,12 +179,23 @@ input.form-control::placeholder {
 }
 
 .filter-or {
-    margin-top: 10px;
-    background-color: #220f1a;
-    color: #f8f4f8;
-    font-weight: bold;
-    padding: 5px;
-    border-radius: 20px;
+  margin-top: 10px;
+  background-color: #220f1a;
+  color: #f8f4f8;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.form-control:disabled {
+  background: repeating-linear-gradient(
+    45deg,
+    #9a1745,
+    #ae456a 10px,
+    #cc2b64 10px,
+    #d65583 20px
+  );
+  cursor: not-allowed;
 }
 
 /* ========================================= */

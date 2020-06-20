@@ -177,8 +177,11 @@ https://www.contributor-covenant.org/translations.
 ---
 
 ## Future Development:
-* __ISSUE 1:__ With the three input fields for filtering through data (full name, location, and username), a user can only use one field at a time to filter through employee data. If the user tries to use a second/third input field, the data will not filter through the already-filtered data. Instead, the subsequent filter inputs will re-filter through the original (full) dataset. Basically, inputting multiple filter terms does not work, as only the last input will be used to search for employees.
-* __ISSUE 2:__ The buttons to sort data do not indicate whether clicking will sort in ascending or descending order.
+* __ISSUE 1:__ With the three input fields for filtering through data (full name, location, and username), a user can only use one field at a time to filter through employee data. If the user tries to use a second/third input field, the data will not filter through the already-filtered data. Instead, the subsequent filter inputs will re-filter through the original (full) dataset. Basically, inputting multiple filter parameters does not work, as only the user's _last_ input will be used to filter through employees.
+  * __current (temporary) solution:__ If one input field is in use, the other two will become disabled.
+  * __future solution:__ It would be nice if the user could search through the entire dataset using multiple filter parameters.
+
+* __ISSUE 2:__ The buttons to sort data do not indicate to the user whether clicking will sort in ascending or descending order.
 
 ---
 

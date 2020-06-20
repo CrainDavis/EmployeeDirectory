@@ -25,6 +25,12 @@ function MainResultSection() {
     ],
   });
 
+  const [inputObject, setInputObject] = useState({
+    name: "",
+    location: "",
+    username: ""
+  });
+
   const handleSort = (label) => {
     let currentOrder = employeeState.buttonLabels
       .filter((element) => element.name === label)
@@ -82,6 +88,7 @@ function MainResultSection() {
   };
 
   const handleNameSearchChange = (event) => {
+    setInputObject({ ...inputObject, name: event.target.value });
     const filter = event.target.value;
     const filteredList = employeeState.employees.filter((item) => {
       let values =
@@ -95,6 +102,7 @@ function MainResultSection() {
   };
 
   const handleLocationSearchChange = (event) => {
+    setInputObject({ ...inputObject, location: event.target.value });
     const filter = event.target.value;
     const filteredList = employeeState.employees.filter((item) => {
       let values =
@@ -110,6 +118,7 @@ function MainResultSection() {
   };
 
   const handleUsernameSearchChange = (event) => {
+    setInputObject({ ...inputObject, username: event.target.value });
     const filter = event.target.value;
     const filteredList = employeeState.employees.filter((item) => {
       let values = item.login.username.toLowerCase();
@@ -136,6 +145,7 @@ function MainResultSection() {
     <EmployeeContext.Provider
       value={{
         employeeState,
+        inputObject,
         handleNameSearchChange,
         handleLocationSearchChange,
         handleUsernameSearchChange,
@@ -143,7 +153,7 @@ function MainResultSection() {
       }}
     >
       <div className="main-container">
-        <SearchControls />
+        <SearchControls value={{inputObject}}/>
       </div>
       <SectionBreak />
       <div className="main-container">
