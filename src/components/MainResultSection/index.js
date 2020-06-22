@@ -50,7 +50,7 @@ function MainResultSection() {
         } else if (label === "last name") {
           return a.name.last.localeCompare(b.name.last);
         } else if (label === "dob") {
-          return a.dob.age - b.dob.age;
+          return a.dob.date.localeCompare(b.dob.date);
         } else if (label === "location") {
           return a.location.city.localeCompare(b.location.city);
         } else if (label === "username") {
@@ -62,7 +62,7 @@ function MainResultSection() {
         } else if (label === "last name") {
           return b.name.last.localeCompare(a.name.last);
         } else if (label === "dob") {
-          return b.dob.age - a.dob.age;
+          return b.dob.date.localeCompare(a.dob.date);
         } else if (label === "location") {
           return b.location.city.localeCompare(a.location.city);
         } else if (label === "username") {

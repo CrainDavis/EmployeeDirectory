@@ -8,7 +8,7 @@ This application, upon page load, displays employee data generated from the [Ran
 * sort various categories (first name, last name, date of birth, username, or location) in ascending or descending order
 * filter employees by one of three ways (full name, location, or username)
 
-This application demonstrates the use of _ReactJS_, as well as _React Hooks_ (_useState_, _useEffect_) and _Context_.
+This application demonstrates the use of _ReactJS_, as well as _React Hooks_ (_useState_, _useEffect_) and _Context_, and is __front-end__ only.
 
 ---
 
@@ -30,12 +30,32 @@ None is required.
 ---
 
 ## Usage:
-coming soon...
+To use this application, go to __[this link](https://craindavis.github.io/EmployeeDirectory/)__. (Also, please blame [GIPHY](https://giphy.com/) for the quality of the GIFs seen below...)
+
+Upon opening the page in the browser, the page will automatically display data for 200 employees.
+
+![gif 1](readme-gifs/gif-1.gif)
+
+The data can be sorted in ascending/descending order based on the following categories:
+* first name
+* last name
+* username
+* date of birth
+* location (city)
+
+![gif 2](readme-gifs/gif-2.gif)
+
+This data can also be filtered so that only profiles that meet a specification are displayed to the user. Employees can be searched for by the following input:
+* first or last name
+* location (city or state)
+* username
+
+![gif 3](readme-gifs/gif-3.gif)
 
 ---
 
 ## Demonstration:
-coming soon...
+To view a more complete video demonstration of this application, go to __[this link](https://drive.google.com/file/d/1A4MC__K1UfT_bBONBOS4F1vmLF1CmiLY/view)__.
 
 ---
 
@@ -179,9 +199,10 @@ https://www.contributor-covenant.org/translations.
 ## Future Development:
 * __ISSUE 1:__ With the three input fields for filtering through data (full name, location, and username), a user can only use one field at a time to filter through employee data. If the user tries to use a second/third input field, the data will not filter through the already-filtered data. Instead, the subsequent filter inputs will re-filter through the original (full) dataset. Basically, inputting multiple filter parameters does not work, as only the user's _last_ input will be used to filter through employees.
   * __current (temporary) solution:__ If one input field is in use, the other two will become disabled.
-  * __future solution:__ It would be nice if the user could search through the entire dataset using multiple filter parameters.
+  * __ideal solution:__ It would be nice if the user could search through the entire dataset using multiple filter parameters.
 
 * __ISSUE 2:__ The buttons to sort data do not indicate to the user whether clicking will sort in ascending or descending order.
+  * __ideal solution:__ Each button should have some kind of icon (such as an up/down arrow) indicating whether the next click will arrange the dataset in ascending or descending order.
 
 ---
 
