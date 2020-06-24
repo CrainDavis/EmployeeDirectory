@@ -31,6 +31,20 @@ function MainResultSection() {
     username: ""
   });
 
+  function loadEmployees() {
+    API.getEmployees().then((results) => {
+      setEmployeeState({
+        ...employeeState,
+        employees: results.data.results,
+        filteredEmployees: results.data.results,
+      });
+    });
+  };
+
+  useEffect(() => {
+    loadEmployees();
+  }, []);
+
   const handleSort = (label) => {
     let currentOrder = employeeState.buttonLabels
       .filter((element) => element.name === label)
@@ -130,17 +144,15 @@ function MainResultSection() {
     setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
   };
 
-  useEffect(() => {
-    API.getEmployees().then((results) => {
-      setEmployeeState({
-        ...employeeState,
-        employees: results.data.results,
-        filteredEmployees: results.data.results,
-      });
-    });
-  }, []);
-
   // ==========================================
+  // future development goals:
+    // 1) consolidate handleNameSearchChange(), handleLocationSearchChange(), and handleUsernameSearchChange() into one function,
+      // so that the user can filter through employees using three parameters instead of just one.
+      // currently, inputObject is being used to disable the input fields; this can likely be used for the three-parameter filter
+    // 2) the buttonLabels contain a value for whether the label order is "ascending" or "descending"; this value can likely be used to
+      // render some sort of icon showing the user what order the list will be organized in upon clicking
+  // ==========================================
+
   return (
     <EmployeeContext.Provider
       value={{
