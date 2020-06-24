@@ -28,7 +28,7 @@ function MainResultSection() {
   const [inputObject, setInputObject] = useState({
     name: "",
     location: "",
-    username: ""
+    username: "",
   });
 
   function loadEmployees() {
@@ -39,7 +39,7 @@ function MainResultSection() {
         filteredEmployees: results.data.results,
       });
     });
-  };
+  }
 
   useEffect(() => {
     loadEmployees();
@@ -101,29 +101,26 @@ function MainResultSection() {
     });
   };
 
-  const handleNameSearchChange = (event) => {
-    setInputObject({ ...inputObject, name: event.target.value });
-    const filter = event.target.value;
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInputObject({ ...inputObject, [name]: value });
+
+    const filter = inputObject;
+
     const filteredList = employeeState.employees.filter((item) => {
-      let values =
+      let nameValue =
         item.name.first.toLowerCase() + " " + item.name.last.toLowerCase();
-      if (values.indexOf(filter.toLowerCase()) !== -1) {
-        return item;
-      }
-    });
-
-    setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
-  };
-
-  const handleLocationSearchChange = (event) => {
-    setInputObject({ ...inputObject, location: event.target.value });
-    const filter = event.target.value;
-    const filteredList = employeeState.employees.filter((item) => {
-      let values =
+      let locationValue =
         item.location.city.toLowerCase() +
         ", " +
         item.location.state.toLowerCase();
-      if (values.indexOf(filter.toLowerCase()) !== -1) {
+      let usernameValue = item.login.username.toLowerCase();
+
+      if (
+        nameValue.indexOf(filter.name.toLowerCase()) !== -1 &&
+        locationValue.indexOf(filter.location.toLowerCase()) !== -1 &&
+        usernameValue.indexOf(filter.username.toLowerCase()) !== -1
+      ) {
         return item;
       }
     });
@@ -131,26 +128,56 @@ function MainResultSection() {
     setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
   };
 
-  const handleUsernameSearchChange = (event) => {
-    setInputObject({ ...inputObject, username: event.target.value });
-    const filter = event.target.value;
-    const filteredList = employeeState.employees.filter((item) => {
-      let values = item.login.username.toLowerCase();
-      if (values.indexOf(filter.toLowerCase()) !== -1) {
-        return item;
-      }
-    });
+  // const handleNameSearchChange = (event) => {
+  //   setInputObject({ ...inputObject, name: event.target.value });
+  //   const filter = event.target.value;
+  //   const filteredList = employeeState.employees.filter((item) => {
+  //     let values =
+  //       item.name.first.toLowerCase() + " " + item.name.last.toLowerCase();
+  //     if (values.indexOf(filter.toLowerCase()) !== -1) {
+  //       return item;
+  //     }
+  //   });
 
-    setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
-  };
+  //   setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
+  // };
+
+  // const handleLocationSearchChange = (event) => {
+  //   setInputObject({ ...inputObject, location: event.target.value });
+  //   const filter = event.target.value;
+  //   const filteredList = employeeState.employees.filter((item) => {
+  //     let values =
+  //       item.location.city.toLowerCase() +
+  //       ", " +
+  //       item.location.state.toLowerCase();
+  //     if (values.indexOf(filter.toLowerCase()) !== -1) {
+  //       return item;
+  //     }
+  //   });
+
+  //   setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
+  // };
+
+  // const handleUsernameSearchChange = (event) => {
+  //   setInputObject({ ...inputObject, username: event.target.value });
+  //   const filter = event.target.value;
+  //   const filteredList = employeeState.employees.filter((item) => {
+  //     let values = item.login.username.toLowerCase();
+  //     if (values.indexOf(filter.toLowerCase()) !== -1) {
+  //       return item;
+  //     }
+  //   });
+
+  //   setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
+  // };
 
   // ==========================================
   // future development goals:
-    // 1) consolidate handleNameSearchChange(), handleLocationSearchChange(), and handleUsernameSearchChange() into one function,
-      // so that the user can filter through employees using three parameters instead of just one.
-      // currently, inputObject is being used to disable the input fields; this can likely be used for the three-parameter filter
-    // 2) the buttonLabels contain a value for whether the label order is "ascending" or "descending"; this value can likely be used to
-      // render some sort of icon showing the user what order the list will be organized in upon clicking
+  // 1) consolidate handleNameSearchChange(), handleLocationSearchChange(), and handleUsernameSearchChange() into one function,
+  // so that the user can filter through employees using three parameters instead of just one.
+  // currently, inputObject is being used to disable the input fields; this can likely be used for the three-parameter filter
+  // 2) the buttonLabels contain a value for whether the label order is "ascending" or "descending"; this value can likely be used to
+  // render some sort of icon showing the user what order the list will be organized in upon clicking
   // ==========================================
 
   return (
@@ -158,14 +185,15 @@ function MainResultSection() {
       value={{
         employeeState,
         inputObject,
-        handleNameSearchChange,
-        handleLocationSearchChange,
-        handleUsernameSearchChange,
+        // handleNameSearchChange,
+        // handleLocationSearchChange,
+        // handleUsernameSearchChange,
+        handleInputChange,
         handleSort,
       }}
     >
       <div className="main-container">
-        <SearchControls value={{inputObject}}/>
+        <SearchControls value={{ inputObject }} />
       </div>
       <SectionBreak />
       <div className="main-container">
