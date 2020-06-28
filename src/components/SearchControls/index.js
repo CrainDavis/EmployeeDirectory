@@ -27,11 +27,11 @@ const SearchControls = () => {
                         <div className="control-panel-subsection">
                             <h4 className="control-labels">filter employees by:</h4>
                             <div className="input-group input-group-lg">
-                                <input disabled={context.inputObject.location !== "" || context.inputObject.username !== ""} id="nameInput" value={context.inputObject.name} type="text" className="form-control" placeholder="full name" onChange={event => context.handleNameSearchChange(event)}></input>
+                                <input name="name" disabled={context.inputObject.location !== "" || context.inputObject.username !== ""} id="nameInput" value={context.inputObject.name} type="text" className="form-control" placeholder="full name" onChange={event => context.handleInputChange(event)}></input>
                                 <p className="filter-or">or</p>
-                                <input disabled={context.inputObject.name !== "" || context.inputObject.username !== ""} id="locationInput" value={context.inputObject.location} type="text" className="form-control" placeholder="location" onChange={event => context.handleLocationSearchChange(event)}></input>
+                                <input name="location" disabled={context.inputObject.name !== "" || context.inputObject.username !== ""} id="locationInput" value={context.inputObject.location} type="text" className="form-control" placeholder="location" onChange={event => context.handleInputChange(event)}></input>
                                 <p className="filter-or">or</p>
-                                <input disabled={context.inputObject.name !== "" || context.inputObject.location !== ""} id="usernameInput" value={context.inputObject.username} type="text" className="form-control" placeholder="username" onChange={event => context.handleUsernameSearchChange(event)}></input>
+                                <input name="username" disabled={context.inputObject.name !== "" || context.inputObject.location !== ""} id="usernameInput" value={context.inputObject.username} type="text" className="form-control" placeholder="username" onChange={event => context.handleInputChange(event)}></input>
                             </div>
                         </div>
                     </div>

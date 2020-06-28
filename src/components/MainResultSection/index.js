@@ -101,44 +101,34 @@ function MainResultSection() {
     });
   };
 
-  const handleNameSearchChange = (event) => {
-    setInputObject({ ...inputObject, name: event.target.value });
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setInputObject({ ...inputObject, [name]: value });
+
     const filter = event.target.value;
+
     const filteredList = employeeState.employees.filter((item) => {
-      let values =
+      let nameValue =
         item.name.first.toLowerCase() + " " + item.name.last.toLowerCase();
-      if (values.indexOf(filter.toLowerCase()) !== -1) {
-        return item;
-      }
-    });
-
-    setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
-  };
-
-  const handleLocationSearchChange = (event) => {
-    setInputObject({ ...inputObject, location: event.target.value });
-    const filter = event.target.value;
-    const filteredList = employeeState.employees.filter((item) => {
-      let values =
+      let locationValue =
         item.location.city.toLowerCase() +
         ", " +
         item.location.state.toLowerCase();
-      if (values.indexOf(filter.toLowerCase()) !== -1) {
-        return item;
-      }
-    });
+      let usernameValue = item.login.username.toLowerCase();
 
-    setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
-  };
-
-  const handleUsernameSearchChange = (event) => {
-    setInputObject({ ...inputObject, username: event.target.value });
-    const filter = event.target.value;
-    const filteredList = employeeState.employees.filter((item) => {
-      let values = item.login.username.toLowerCase();
-      if (values.indexOf(filter.toLowerCase()) !== -1) {
-        return item;
-      }
+      if (inputObject.name !== "") {
+        if (nameValue.indexOf(filter.toLowerCase()) !== -1) {
+          return item;
+        };
+      } else if (inputObject.location !== "") {
+        if (locationValue.indexOf(filter.toLowerCase()) !== -1) {
+          return item;
+        };
+      } else if (inputObject.username !== "") {
+        if (usernameValue.indexOf(filter.toLowerCase()) !== -1) {
+          return item;
+        };
+      };
     });
 
     setEmployeeState({ ...employeeState, filteredEmployees: filteredList });
@@ -148,7 +138,9 @@ function MainResultSection() {
   // future development goals:
     // 1) consolidate handleNameSearchChange(), handleLocationSearchChange(), and handleUsernameSearchChange() into one function,
       // so that the user can filter through employees using three parameters instead of just one.
-      // currently, inputObject is being used to disable the input fields; this can likely be used for the three-parameter filter
+      // currently, inputObject is being used to disable the input fields; this can likely be used for the three-parameter filter.
+      // UPDATE: input field handling has been consolidated into one field, but their is a strange error where when the first letter is typed,
+      // the filtered list comes up empty
     // 2) the buttonLabels contain a value for whether the label order is "ascending" or "descending"; this value can likely be used to
       // render some sort of icon showing the user what order the list will be organized in upon clicking
   // ==========================================
@@ -158,9 +150,7 @@ function MainResultSection() {
       value={{
         employeeState,
         inputObject,
-        handleNameSearchChange,
-        handleLocationSearchChange,
-        handleUsernameSearchChange,
+        handleInputChange,
         handleSort,
       }}
     >
