@@ -206,12 +206,4 @@ https://www.contributor-covenant.org/translations.
 
 * __ISSUE 2:__ The buttons to sort data do not indicate to the user whether clicking will sort in ascending or descending order.
   * __ideal solution:__ Each button should have some kind of icon (such as an up/down arrow) indicating whether the next click will arrange the dataset in ascending or descending order.
-
----
-
-## Questions: 
-For any questions, please contact:
-
-![CrainDavis](https://avatars0.githubusercontent.com/u/59345254?v=4) 
-
-__[CrainDavis](https://github.com/CrainDavis)__ at chyna.davis11@gmail.com
+  
